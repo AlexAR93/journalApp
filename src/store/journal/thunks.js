@@ -13,6 +13,7 @@ export const startNewNote=()=>async(dispatch,getState)=>{
         title:'',
         body:'',
         date: new Date().getTime(),
+        imageUrls:[]
     }
 
     const newDoc= doc(collection(FirebaseDB,`${uid}/journal/notes`));
@@ -53,7 +54,6 @@ export const startSaveNote=()=>async(dispatch,getState)=>{
 export const startUpLoadingFiles=(files=[])=>async(dispatch)=>{
     dispatch(setSaving());
 
-    // await fileUpload(files[0]);
     const fileUploadPromises=[];
     for (const file of files){
         fileUploadPromises.push(fileUpload(file));
