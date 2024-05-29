@@ -43,6 +43,7 @@ export const NoteView = () => {
     const onFileInputChange=({target})=>{
         if(target.files.length==0) return;
         dispatch(startUpLoadingFiles(target.files))
+        target.value='';
     }
 
     const onDelete=()=>{
